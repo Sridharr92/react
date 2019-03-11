@@ -5,7 +5,7 @@ import jokesData from './jokesData';
 import Product from './Product';
 import vschoolProducts from './vschoolProducts';
 import Todoitem from './Todoitem';
-import todoData from './todoData'
+import todoData from './todoData'  
 
 // https://developer.mozilla.org/en-US/docs/web/JavaScript/Reference/Global_objects/Arrary/filter
 
@@ -95,30 +95,92 @@ import todoData from './todoData'
 //   }
 // }
 
+//Fourth prog
 
-class App extends Component{
+// class App extends Component{
+//   constructor(){
+//     super()
+//     this.state= {
+//       toLoggedIn : ""
+//     }
+//   }
+//   render(){
+//     let wordDisplay
+//       if(this.state.toLoggedIn){
+//         wordDisplay = "in"
+//       } else {
+//           wordDisplay = "out"
+//       }
+
+//     return(
+//       <div>
+//           <h1> You are currently logged{wordDisplay}</h1>
+//       </div>
+
+//     )
+//   }
+
+// }
+
+// 5th prog
+
+// class App extends React.Component{
+//    constructor(){
+//      super()
+//      this.state ={
+//        todos : todoData
+//      }
+//    }
+//    render(){
+//      const todoitem = this.state.todos.map(item => <Todoitem key={item.id} item={item} />)
+//        return(
+//          <div className="todo-item">
+//            {todoitem}
+//          </div>
+//       )
+//    }
+// }
+
+// 6th prog
+
+// https://reactjs.org/docs/events.html#suppored-events
+
+// function handelChange(){
+//   alert("i was clicked");
+// }
+// function App(){
+//   return(
+//     <div>
+//       <img onMouseOver={() => alert("hovered!")}  
+//         src="https://www.fillmurray.com/200/100" 
+//       />
+//         <br /> 
+//         <br />
+//       <button onClick={handelChange}>Click Me </button>
+//     </div>
+//   )
+// }
+
+ 
+
+class App extends React.Component{
   constructor(){
     super()
-    this.state= {
-      toLoggedIn : ""
+    this.state ={
+      count : 0
     }
   }
+  handleClick(){
+    this.state.count++
+  }
   render(){
-    let wordDisplay
-      if(this.state.toLoggedIn){
-        wordDisplay = "in"
-      } else {
-          wordDisplay = "out"
-      }
-
     return(
       <div>
-          <h1> You are currently logged{wordDisplay}</h1>
+        <h1>{this.state.count}</h1>
+        <button onClick={this.handleClick}>click me</button>
       </div>
-
     )
   }
-
 }
 
 
