@@ -27,18 +27,18 @@ import todoData from './todoData'
 
 
 // function App(){
-	
+  
 //     const jokeComponents = jokesData.map( joke => <Joke key={joke.id} question = {joke.question} punchLine ={joke.punchLine}/> ) 
 //     const productComponents = vschoolProducts.map(item => <Product key={item.id} product={item} />)
 //     const todoitem = todoData.map(item => <Todoitem key={item.id} item={item} />)
-// 	return(
-// 		<div>
-			
-// 			{jokeComponents}
-// 			{productComponents}
-// 			{todoitem}
-// 		</div>
-// 	)
+//  return(
+//    <div>
+      
+//      {jokeComponents}
+//      {productComponents}
+//      {todoitem}
+//    </div>
+//  )
 // }
 
 // Second prog
@@ -100,12 +100,12 @@ class App extends Component{
   constructor(){
     super()
     this.state= {
-      toLoggedIn : true
+      toLoggedIn : ""
     }
   }
   render(){
     let wordDisplay
-      if(this.state.toLoggedIn === true){
+      if(this.state.toLoggedIn){
         wordDisplay = "in"
       } else {
           wordDisplay = "out"
