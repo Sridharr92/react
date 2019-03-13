@@ -161,27 +161,63 @@ import todoData from './todoData'
 //   )
 // }
 
- 
+//7th prog
+
+// class App extends React.Component{
+//    constructor(){
+//     super()
+//     this.state = {
+//       count : 0
+//     }
+//       this.handleClick = this.handleClick.bind(this)
+//    }
+//    handleClick(){
+//     this.setState(preveState => {
+//       return{
+//         count:preveState.count + 7
+//       }
+//     })
+//    }
+//    render(){
+//       return(
+//         <div>
+//           <h3>{this.state.count}</h3>
+//           <button onClick={this.handleClick}>Start Count </button>  
+//         </div>    
+//       )
+//    }
+// }
 
 class App extends React.Component{
-  constructor(){
-    super()
-    this.state ={
-      count : 0
-    }
-  }
-  handleClick(){
-    this.state.count++
-  }
-  render(){
-    return(
-      <div>
-        <h1>{this.state.count}</h1>
-        <button onClick={this.handleClick}>click me</button>
-      </div>
-    )
-  }
+   constructor(){
+     super()
+     this.state ={
+       todos : todoData
+     }
+     this.handelChange = this.handleChange.bind(this)
+   }
+   handleChange(id){
+    this.setState(prevState => {
+      const updatedTodos = prevState.todos.map(todo => {
+        if(todo.id === id){
+          todo.completed = !todo.completed
+        }
+        return todo
+      })
+      return{
+        todos:updatedTodos
+      }
+    })
+   }
+
+   render(){
+     const todoitem = this.state.todos.map(item => <Todoitem key={item.id} item={item} 
+      handleChange = {this.handleChange} />)
+       return(
+         <div className="todo-item">
+           {todoitem}
+         </div>
+      )
+   }
 }
-
-
 export default App;
