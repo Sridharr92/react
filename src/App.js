@@ -289,28 +289,52 @@ import Conditional from './Conditional'
 //10th prog
 //Conditional Programing
 
+// class App extends Component{
+//   constructor(){
+//     super()
+//     this.state = {
+//       isLoading : true
+     
+//     }
+//   }
+//   componentDidMount(){
+//     setTimeout(() => {
+//       this.setState({
+//         isLoading : false
+//       })
+//     },1200)
+//   }
+//   render(){
+//     return(
+//       <div>
+//           {
+//             this.state.isLoadding ? 
+//             <h1>Loading ..</h1> :
+//             <Conditional />
+//           }
+//       </div>
+//     )
+//   }
+// }
+
+//10th (a) prog
 class App extends Component{
   constructor(){
     super()
-    this.state = {
-      isLoading : true
+    this.state = {     
+      unreadMessages :["1","2"]
     }
-  }
-  componentDidMount(){
-    setTimeout(() => {
-      this.setState({
-        isLoading : false
-      })
-    },1500)
-  }
+  }  
   render(){
     return(
       <div>
-         <Conditional isLoading={this.state.isLoading} />
+          {
+            this.state.unreadMessages.length >0  &&
+            <h2>you have {this.state.unreadMessages.length} unread message </h2> 
+          }
       </div>
     )
   }
 }
-
 
 export default App;
