@@ -318,23 +318,88 @@ import Conditional from './Conditional'
 // }
 
 //10th (a) prog
+// class App extends Component{
+//   constructor(){
+//     super()
+//     this.state = {     
+//       unreadMessages :["1","2"]
+//     }
+//   }  
+//   render(){
+//     return(
+//       <div>
+//           {
+//             this.state.unreadMessages.length >0  &&
+//             <h2>you have {this.state.unreadMessages.length} unread message </h2> 
+//           }
+//       </div>
+//     )
+//   }
+// }
+
+
+//11th conditional rendering
+
+// class App extends Component{
+// 	constructor(){
+// 		super()
+// 		this.state = {
+// 			isLoadingOut : true
+// 		}
+// 		this.handleClick = this.handleClick.bind(this)
+// 	}
+
+// 	handleClick(){
+// 		this.setState(prevState => {
+// 			return{
+// 				isLoadingOut : !prevState.isLoadingOut
+// 			}
+// 		}) 
+// 	}
+// 	render(){
+// 		let buttonText = this.state.isLoadingOut ? "LOG IN" : "LOG OUT"
+// 		let displayText = this.state.isLoadingOut ? "Logged Out" : "Logged In"
+// 		return(
+// 			<div>
+// 				<button onClick={this.handleClick}>{buttonText}</button>
+// 				<h2>{displayText}</h2>
+// 			</div>
+// 		)
+// 	}
+// }
+
+
 class App extends Component{
-  constructor(){
-    super()
-    this.state = {     
-      unreadMessages :["1","2"]
-    }
-  }  
-  render(){
-    return(
-      <div>
-          {
-            this.state.unreadMessages.length >0  &&
-            <h2>you have {this.state.unreadMessages.length} unread message </h2> 
-          }
-      </div>
-    )
-  }
+
+	constructor(){
+		super()
+		this.state = {			
+			isLoadingOut : true
+		}
+		this.handleClick = this.handleClick.bind(this)
+	}
+	handleClick(){
+		this.setState(prevState =>{
+			return{
+				isLoadingOut : !prevState.isLoadingOut
+			}
+		})
+	}
+	render(){
+
+		let buttonText = this.state.isLoadingOut ? "LOG IN" : "LOG OUT"
+		let displayText = this.state.isLoadingOut ? "Logged Out" : "Logged In"
+
+		return(
+			<div>
+				<button onClick={this.handleClick}>{buttonText}</button>
+				<h1>{displayText}</h1>
+			</div>
+
+		)
+	}
+
 }
+
 
 export default App;
