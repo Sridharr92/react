@@ -369,33 +369,43 @@ import Conditional from './Conditional'
 // }
 
 
-class App extends Component{
+// Fetching data from an API
 
+//https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch
+
+//https://swapi.co 
+
+//https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261
+
+//API URL : https://swapi.co/api/planets/1/
+
+
+
+class App extends Component{
 	constructor(){
 		super()
-		this.state = {			
-			isLoadingOut : true
+		this.state ={
+			character:{}
 		}
-		this.handleClick = this.handleClick.bind(this)
 	}
-	handleClick(){
-		this.setState(prevState =>{
-			return{
-				isLoadingOut : !prevState.isLoadingOut
-			}
-		})
+
+	componentDidMount(){
+		fetch("https://swapi.co/api/films/7/")
+		.then(response => response.json())
+		.then(data => console.log(data))
+	// 	.then(data => {
+	// 		this.setState({
+	// 			character:data
+	// 		})
+	// })
 	}
+
 	render(){
-
-		let buttonText = this.state.isLoadingOut ? "LOG IN" : "LOG OUT"
-		let displayText = this.state.isLoadingOut ? "Logged Out" : "Logged In"
-
 		return(
 			<div>
-				<button onClick={this.handleClick}>{buttonText}</button>
-				<h1>{displayText}</h1>
+				code here
+				// {this.state.character.title}
 			</div>
-
 		)
 	}
 
