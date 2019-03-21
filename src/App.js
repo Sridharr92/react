@@ -6,7 +6,7 @@ import React,{Component} from 'react';
 // import vschoolProducts from './vschoolProducts';
 // import Todoitem from './Todoitem';
 // import todoData from './todoData'  
-import Conditional from './Conditional'
+// import Conditional from './Conditional'
 
 
 // https://developer.mozilla.org/en-US/docs/web/JavaScript/Reference/Global_objects/Arrary/filter
@@ -381,35 +381,111 @@ import Conditional from './Conditional'
 
 
 
+// class App extends Component{
+// 	constructor(){
+// 		super()
+// 		this.state ={
+// 			loading:false,
+// 			character:{}
+// 		}
+// 	}
+
+// 	componentDidMount(){
+// 		this.setState({loading:true})
+// 		fetch("https://swapi.co/api/films/7/")
+// 		.then(response => response.json())
+// 		// .then(data => console.log(data))
+// 		.then(data => {
+// 			this.setState({
+// 				loading:false,
+// 				character:data
+// 			})
+// 		})
+// 	}
+
+// 	render(){
+// 		const text = this.state.loading ? "loading..." : this.state.character.title
+// 		return(
+// 			<div>
+// 				<p>{text}</p>
+// 			</div>
+// 		)
+// 	}
+
+// }
+
+//Form part 1
+
 class App extends Component{
 	constructor(){
 		super()
-		this.state ={
-			character:{}
+		this.state = {
+			firstName: "",
+			lastName: "",
+			address: "",
+			pincode:"",
+			email: ""
+
 		}
+		this.handleChange = this.handleChange.bind(this)
 	}
-
-	componentDidMount(){
-		fetch("https://swapi.co/api/films/7/")
-		.then(response => response.json())
-		.then(data => console.log(data))
-	// 	.then(data => {
-	// 		this.setState({
-	// 			character:data
-	// 		})
-	// })
+	handleChange(event){
+		// const {name,value} = event.target
+		this.setState({
+			[event.target.name] : event.target.value
+			// name : value
+		})
 	}
-
 	render(){
 		return(
-			<div>
-				code here
-				// {this.state.character.title}
-			</div>
+			<form>
+				<input 
+				   type="text" 
+				   value={this.state.firstName} 
+				   name="firstName" 
+				   placeholder="Sridhar" 
+				   onChange={this.handleChange} 
+				 />
+				
+				<input 
+				    type="text" 
+				    value={this.state.lastName}
+				    name="lastName" 
+				    placeholder="R"  
+				    onChange={this.handleChange} />	
+				
+				<input 
+					type="text" 
+					value={this.state.address}
+					name="address" 
+					placeholder="Address"  
+					onChange={this.handleChange} 
+				/>			
+				
+				<input 
+					 type="number" 
+					 value={this.state.pincode}
+					 name="pincode" 
+					 placeholder="pincode"  
+					 onChange={this.handleChange} 
+				 />
+
+				<input 
+					type="email" 
+					value={this.state.email}
+					name="email" 
+					placeholder="email"  
+					onChange={this.handleChange} 
+				/>
+				
+				<h1>{this.state.firstName} </h1>
+				<h1>{this.state.lastName}</h1>
+				<h1>{this.state.address}</h1>
+				<h1>{this.state.pincode}</h1>
+				<h1>{this.state.email}</h1>
+			</form>
 		)
 	}
-
 }
-
 
 export default App;
