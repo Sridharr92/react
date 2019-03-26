@@ -416,76 +416,157 @@ import React,{Component} from 'react';
 
 //Form part 1
 
+// class App extends Component{
+// 	constructor(){
+// 		super()
+// 		this.state = {
+// 			firstName: "",
+// 			lastName: "",
+// 			address: "",
+// 			pincode:"",
+// 			email: ""
+
+// 		}
+// 		this.handleChange = this.handleChange.bind(this)
+// 	}
+// 	handleChange(event){
+// 		// const {name,value} = event.target  (dummy example 1)
+// 		this.setState({
+// 			[event.target.name] : event.target.value
+// 			// name : value (dummy example 1)
+// 		})
+// 	}
+// 	render(){
+// 		return(
+// 			<form>
+// 				<input 
+// 				   type="text" 
+// 				   value={this.state.firstName} 
+// 				   name="firstName" 
+// 				   placeholder="Sridhar" 
+// 				   onChange={this.handleChange} 
+// 				 />
+				
+// 				<input 
+// 				    type="text" 
+// 				    value={this.state.lastName}
+// 				    name="lastName" 
+// 				    placeholder="R"  
+// 				    onChange={this.handleChange} />	
+				
+// 				<input 
+// 					type="text" 
+// 					value={this.state.address}
+// 					name="address" 
+// 					placeholder="Address"  
+// 					onChange={this.handleChange} 
+// 				/>			
+				
+// 				<input 
+// 					 type="number" 
+// 					 value={this.state.pincode}
+// 					 name="pincode" 
+// 					 placeholder="pincode"  
+// 					 onChange={this.handleChange} 
+// 				 />
+
+// 				<input 
+// 					type="email" 
+// 					value={this.state.email}
+// 					name="email" 
+// 					placeholder="email"  
+// 					onChange={this.handleChange} 
+// 				/>
+				
+// 				<h1>{this.state.firstName} </h1>
+// 				<h1>{this.state.lastName}</h1>
+// 				<h1>{this.state.address}</h1>
+// 				<h1>{this.state.pincode}</h1>
+// 				<h1>{this.state.email}</h1>
+// 			</form>
+// 		)
+// 	}
+//}
+
+//Form 2 example
+
 class App extends Component{
 	constructor(){
 		super()
-		this.state = {
-			firstName: "",
-			lastName: "",
-			address: "",
-			pincode:"",
-			email: ""
-
+   			this.state = {
+			firstName:"",
+			lastName:"",
+			textarea:"",
+			isFriendly:false,
+			gender:"",
 		}
 		this.handleChange = this.handleChange.bind(this)
 	}
 	handleChange(event){
-		// const {name,value} = event.target
-		this.setState({
-			[event.target.name] : event.target.value
-			// name : value
-		})
+		const{name,value,type,checked} = event.target
+		type === "checkbox" ? this.setState({[name]:checked}) : this.setState({[name]:value})
 	}
 	render(){
 		return(
-			<form>
+			<form>	
 				<input 
-				   type="text" 
-				   value={this.state.firstName} 
-				   name="firstName" 
-				   placeholder="Sridhar" 
-				   onChange={this.handleChange} 
-				 />
-				
-				<input 
-				    type="text" 
-				    value={this.state.lastName}
-				    name="lastName" 
-				    placeholder="R"  
-				    onChange={this.handleChange} />	
-				
-				<input 
-					type="text" 
-					value={this.state.address}
-					name="address" 
-					placeholder="Address"  
-					onChange={this.handleChange} 
-				/>			
-				
-				<input 
-					 type="number" 
-					 value={this.state.pincode}
-					 name="pincode" 
-					 placeholder="pincode"  
-					 onChange={this.handleChange} 
-				 />
-
-				<input 
-					type="email" 
-					value={this.state.email}
-					name="email" 
-					placeholder="email"  
-					onChange={this.handleChange} 
+				   type="text"
+				   value={this.state.firstName}
+				   name="firstName"
+				   placeholder="firstName"
+				   onChange={this.handleChange}
 				/>
-				
-				<h1>{this.state.firstName} </h1>
-				<h1>{this.state.lastName}</h1>
-				<h1>{this.state.address}</h1>
-				<h1>{this.state.pincode}</h1>
-				<h1>{this.state.email}</h1>
+				<br />
+				<input 
+				 type="text"
+				 value={this.state.lastName}
+				 name="lastName"
+				 placeholder="lastName"
+				 onChange={this.handleChange}
+				/>
+				<textarea 
+					value={"some default value"}
+					name="textarea"
+					onChange={this.handleChange}
+				/>
+				<br />
+				<label>
+					<input 
+					type="checkbox"
+					name="isFriendly"
+					checked={this.state.isFriendly}
+					onChange={this.handleChange}
+					/>Is Friendly
+				</label>
+				<br />
+				<label>
+					<input
+					 type="radio"
+					 name="gender"
+					 value="male"
+					 checked={this.state.gender === true}
+					 onChange={this.handleChange}
+					 />Male
+				</label>
+				<br />
+				<label>
+
+					<input 
+						type="radio"
+						name="gender"
+						value="female"
+						checked={this.state.gender === false}
+						onChange={this.handleChange}
+					/>Female
+				</label>
+				<br />
+				<h5>{this.state.firstName} {this.state.lastName} </h5>
+				<h5>{this.state.textarea}</h5>				
+				<h5>{this.state.gender}</h5>
 			</form>
 		)
 	}
 }
+
 
 export default App;
