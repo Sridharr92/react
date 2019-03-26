@@ -521,7 +521,7 @@ class App extends Component{
 				 type="text"
 				 value={this.state.lastName}
 				 name="lastName"
-				 placeholder="lastName"
+				 placeholder="Last"
 				 onChange={this.handleChange}
 				/>
 				<textarea 
