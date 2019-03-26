@@ -520,7 +520,7 @@ class App extends Component{
 				<input 
 				 type="text"
 				 value={this.state.lastName}
-				 name="lastName"
+				 name="lastName Needed"
 				 placeholder="lastName"
 				 onChange={this.handleChange}
 				/>
