@@ -595,11 +595,7 @@ class App extends Component{
 			age:"",
 			gender:"",
 			destination:"",
-			dietaryRestrictions:{
-				isVegan:false,
-				isKoshar:false,
-				isLactoseFree:false
-			}
+			dietaryRestrictions : ""
 		}
 		this.handleChange = this.handleChange.bind(this)
 	}
@@ -669,13 +665,13 @@ class App extends Component{
 				</select>
 
 				<br />
-
 				<label>
 					<input
 					 type="checkbox"
-					 name="isVegan"
+					 name="dietaryRestrictions"
+					 value="isVegan"
 					 onChange={this.handleChange}
-					 checked={this.state.dietaryRestrictions.isVegan}
+					 checked={this.state.dietaryRestrictions === "isVegan"}
 					 /> Vegan
 				</label>
 				<br />
@@ -683,21 +679,24 @@ class App extends Component{
 				<label>
 					<input
 					 type="checkbox"
-					 name="isKoshar"
+					 name="dietaryRestrictions"
+					 value="isKoshar"
 					 onChange={this.handleChange}
-					 checked={this.state.dietaryRestrictions.isKoshar}
+					 checked={this.state.dietaryRestrictions === "isKoshar"}
 					 /> isKoshar
 				</label>
 				<br />
 				<label>
 					<input
 					 type="checkbox"
-					 name="isLactoseFree"
+					 name="dietaryRestrictions"
+					 value="isLactoseFree"
 					 onChange={this.handleChange}
-					 checked={this.state.dietaryRestrictions.isLactoseFree}
+					 checked={this.state.dietaryRestrictions === "isLactoseFree"}
 					 /> LactoseFree
 				</label>
 				<br />
+				
 				<button>Submit</button>
 				<br />		
 				<h5>Your Aag is : {this.state.age}</h5>
